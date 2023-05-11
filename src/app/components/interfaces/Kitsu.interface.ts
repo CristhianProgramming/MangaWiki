@@ -115,6 +115,7 @@ export interface RelationshipLinks {
 
 export enum TypeEnum {
     Anime = "anime",
+    Manga = "manga"
 }
 
 export interface KitsuLinks {

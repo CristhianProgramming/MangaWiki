@@ -11,7 +11,7 @@ export class RecomendationsComponent implements OnInit{
 
   public isPrimary? : string | null ;
 
-  public tenRecomendacion : Datum[] = [] ;
+  public tenRecomendacion : any[] =  [] ;
 
   constructor(private serviceKitsu : KitsuService){}
 
@@ -23,6 +23,6 @@ export class RecomendationsComponent implements OnInit{
     response.data.map(contenido =>{
       this.tenRecomendacion.push(contenido)
     })
-  })
+  }) 
   }
 }
