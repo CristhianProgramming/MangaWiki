@@ -1,1 +1,40 @@
-<p>details works!</p>
+<img [src]="contenido.attributes.coverImage!.original"
+    class="bordes-si mt-2 absolute -z-10 w-full banner-details object-cover h-96 ">
+<div class="mt-64 grid lg:grid-flow-col">
+    <img [src]="contenido.attributes.posterImage.original"
+        class=" h-80 mt-7 ml-7 object-cover rounded-2xl shadow-md border-stone-900 border-2">
+
+    <div class=" h-1/2 w-full -z-10  mt-40 lg:pr-32 lg:pl-14 sm:pl-8 text-left">
+        <h1 class="text-4xl font-bold">{{contenido.attributes.canonicalTitle}}</h1>
+        <h3 class="text-2xl font-semibold">{{contenido.type | uppercase}}</h3>
+        <p>{{contenido.attributes.description}}</p>
+    </div>
+    <div class="mt-36 absolute right-0 p-2 m-2 text-red-500 font-bold">{{contenido.attributes.status | uppercase}}</div>
+</div>
+
+<div class="m-5 p-2">
+    <div *ngFor="let categoria of categorias" class="inline-flex">
+        <p class="m-2 bg-red-300 p-2 rounded-full">{{categoria.attributes.title}}</p>
+    </div>
+    <div class="grid grid-flow-row" *ngIf="contenido.type == 'anime'">
+        <div class=" mt-7 text-center grid grid-cols-1" *ngIf="contenido">
+            <div>
+                <h1 class=" text-red-400 font-bold text-2xl mt-5">TRAILER</h1>
+         
+            <iframe class="m-15 w-full rounded-lg mt-8 ml-auto mr-auto" style="height: 32rem;max-width: 50vw;" [src]="videoLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+
+        </div>
+        <div class="">
+            <h1 class="text-center text-red-400 font-bold text-2xl mt-5 ">PERSONAJES</h1>
+            <div class="lg:grid lg:grid-cols-10 sm:grid sm:grid-cols-2">
+                <div *ngFor="let personaje of personajes">
+                    <img [src]="personaje.image.original" alt="" class="pl-2 pr-2 pt-4 object-cover h-full shadow-lg w-full">
+                    <h6 class="text-center font-semibold">{{personaje.canonicalName | titlepipe}}</h6>
+                </div>
+            </div>
+        </div>
+     
+
+    </div>
+</div>
