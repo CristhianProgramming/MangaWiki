@@ -1,0 +1,24 @@
+<div class="0 h-auto w-full -z-50 mt-96" style="background-color: #D85B6B;" *ngIf="isPrimary;else sencondary">
+    <h1 class="titleM p-5 font-semibold text-2xl text-slate-50 text-center">RECOMENDACION {{propertyes![0] | uppercase}}
+    </h1>
+
+    <div class="grid grid-cols-5 m-auto">
+        <div *ngFor="let anime of tenRecomendacion">
+            <app-cards [anime]="anime" color="#420001"></app-cards>
+        </div>
+    </div>
+
+
+</div>
+
+<ng-template #sencondary>
+    <div class="bg-slate-200 h-auto w-full -z-50 " style="background-color: #420001;">
+        <h1 class="titleA p-5 font-semibold text-2xl text-slate-50 text-center">RECOMENDACION {{propertyes![0] |
+            uppercase}}</h1>
+            <div class="grid grid-cols-5 m-auto">
+                <div *ngFor="let anime of tenRecomendacion">
+                    <app-cards [anime]="anime" color="#D85B6B"></app-cards>
+                </div>
+            </div>
+    </div>
+</ng-template>
