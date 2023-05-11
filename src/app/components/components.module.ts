@@ -8,6 +8,7 @@ import { DetailsComponent } from './pages/details/details.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ComponentRoutingModule } from './components-routing.modules';
+import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 
 
 
@@ -17,7 +18,8 @@ import { ComponentRoutingModule } from './components-routing.modules';
     CardsComponent,
     TitlepipePipe,
     HomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    CatalogoComponent
   ],
   imports: [
     CommonModule,
