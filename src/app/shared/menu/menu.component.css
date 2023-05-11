@@ -1,0 +1,14 @@
+:root{
+    --main-color :(#D85B6B);
+    --sub-color-font:(#9E2734);
+    --complementariy-color:(#420001);
+}
+
+
+.menu{
+    color: #9E2734;
+} 
+
+.menu h4{
+    cursor: pointer;
+}
