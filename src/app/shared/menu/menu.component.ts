@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
 
+ramdomNumero(){
+  let RANDOM =(Math.random() * 999).toString().slice(0,3);
+  return RANDOM;
+}
+
 }

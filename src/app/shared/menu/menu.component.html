@@ -1,5 +1,5 @@
 <div class="w-full h-8 inline-flex justify-center menu z-20">
-    <h4 class="text-lg font-extrabold m-3">BUSCAR</h4>
+   <a [routerLink]="['/anime/',ramdomNumero() ]" target="_blank" rel="noopener noreferrer"><h4 class="text-lg font-extrabold m-3"  >RANDOM</h4></a> 
     <h4 class="text-lg font-extrabold m-3">CATALOGO</h4>
-    <h4 class="text-lg font-extrabold m-3">HOME</h4>
+    <h4 class="text-lg font-extrabold m-3" [routerLink]="['']" routerLinkActive="router-link-active" >HOME</h4>
 </div>

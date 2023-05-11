@@ -1,4 +1,4 @@
-<div *ngIf="anime" class="w-full h-full p-5">
+<div *ngIf="anime" class="card w-full h-full p-5">
 <p class="absolute p-1 font-semibold bg-red-600 text-slate-50 rounded-ee-2xl rounded-tl-2xl"
 [ngStyle]="{'background': color }">{{anime.attributes.averageRating}}</p>
 <a [routerLink]="[anime.type,anime.id]" target="_blank" rel="noopener noreferrer">

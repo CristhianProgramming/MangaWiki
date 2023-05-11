@@ -12,3 +12,10 @@
 .menu h4{
     cursor: pointer;
 }
+
+.menu h4:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    color: #D85B6B;
+}
+
