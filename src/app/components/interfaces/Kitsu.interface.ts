@@ -1,5 +1,18 @@
 export interface Kitsu {
-    data:  Datum[];
+    data:  Datum[] ;
+    meta:  KitsuMeta;
+    links: KitsuLinks;
+}
+
+export interface CharacterDetailsReturn{
+    role: string;
+    canonicalName: string;
+    description?: string;
+    image : PosterImage;
+}
+
+export interface KitsuUnique {
+    data:  Datum ;
     meta:  KitsuMeta;
     links: KitsuLinks;
 }
