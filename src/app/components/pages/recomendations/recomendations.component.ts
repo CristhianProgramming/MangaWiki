@@ -12,13 +12,20 @@ export class RecomendationsComponent implements OnInit{
 
   public tenRecomendacion : any[] =  [] ;
 
+  public title! : string;
+
   constructor(private serviceKitsu : KitsuService){}
+
+  @Input() popiedad! : string ;
 
   @Input() propertyes : string[] | undefined;
 
+  @Input() titulo! : string ;
+
   ngOnInit(): void {
-    this.isPrimary = this.propertyes![1] ;
-   this.serviceKitsu.getContent(this.propertyes![0]).subscribe(response => {
+    this.title = this.titulo;
+  this.isPrimary = this.propertyes![1] ;
+   this.serviceKitsu.getContent(this.propertyes![0],this.popiedad).subscribe(response => {
     response.data.map(contenido =>{
       this.tenRecomendacion.push(contenido)
     })

@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ComponentRoutingModule } from './components-routing.modules';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +26,8 @@ import { CatalogoComponent } from './pages/catalogo/catalogo.component';
     CommonModule,
     SharedModule,
     RouterModule,
-    ComponentRoutingModule
+    ComponentRoutingModule,
+    ReactiveFormsModule
   ],
   exports:[RecomendationsComponent,HomeComponent,DetailsComponent]
 })

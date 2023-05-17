@@ -1,1 +1,45 @@
-<p>catalogo works!</p>
+<div class="  w-full m-5">
+    <div class="grid grid-cols-10">
+        <div class="container col-span-2" [formGroup]="datoBuscado">
+            <input type="text" placeholder="Buscar"
+                class="h-8 p-1 border-b-rose-400 border-b-2 w-full rounded-lg m-3 text-red-40"
+                formControlName="buscador"
+                (keyup)="buscardor()"
+                >
+        
+            <div class="container">
+                <ul *ngIf="encontrado" class=" text-center">
+                    <li *ngFor="let item of encontrado.data">
+                        <div class="w-full  bg-red-200 rounded-xl h-20 mt-3 p-1">
+                            
+                            <img [src]="item.attributes.posterImage.original" class="h-12 rounded-full object-cover w-full" [routerLink]="['/'+item.type,item.id]">
+
+                           {{ item.attributes.slug | titlepipe}}
+                            
+                        </div>
+
+
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-span-8 text-center">
+            <h1 class="text-red-400 font-extrabold text-3xl">CATALOGO</h1>
+            <div class="grid grid-cols-6">
+                <div *ngFor="let anime of catalogo.data">
+                    <app-cards [anime]="anime" color="rgb(248 113 113 / var(--tw-text-opacity))"></app-cards>
+                </div>
+
+            </div>
+            <div class="w-full text-center m-auto mt-4 ">
+                <a [routerLink]="['/catalogo/',(hoja-1)]" target="_top"><button
+                        class="m-2 p-2 bg-red-400 rounded-xl hover:bg-red-300 disabled:bg-slate-500">Previous</button></a>
+                <a [routerLink]="['/catalogo/',(hoja+1)]" target="_top"><button
+                        class="m-2 p-2 bg-red-400 rounded-xl hover:bg-red-300">Next</button></a>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,10 +1,20 @@
+
+<ng-template #loader>
+
+    <h1 class="text-center m-96 font-extrabold text-red-400 text-7xl">CARGANDO..</h1>
+
+</ng-template>
+
+<ng-container *ngIf="contenido;else loader">
+
 <img [src]="contenido.attributes.coverImage!.original"
-    class="bordes-si mt-2 absolute -z-10 w-full banner-details object-cover h-96 ">
+    class="bordes-si mt-2 absolute -z-10 w-full banner-details object-cover h-96 " 
+    *ngIf="contenido.attributes.coverImage">
 <div class="mt-64 grid lg:grid-flow-col">
     <img [src]="contenido.attributes.posterImage.original"
-        class=" h-80 mt-7 ml-7 object-cover rounded-2xl shadow-md border-stone-900 border-2">
+        class=" h-80 mt-7 ml-7 object-cover rounded-2xl shadow-md border-stone-900 border-2" >
 
-    <div class=" h-1/2 w-full -z-10  mt-40 lg:pr-32 lg:pl-14 sm:pl-8 text-left">
+    <div class=" h-1/2 w-full -z-10  mt-40 lg:pr-32 lg:pl-14 sm:pl-8 text-left" >
         <h1 class="text-4xl font-bold">{{contenido.attributes.canonicalTitle}}</h1>
         <h3 class="text-2xl font-semibold">{{contenido.type | uppercase}}</h3>
         <p>{{contenido.attributes.description}}</p>
@@ -12,8 +22,8 @@
     <div class="mt-36 absolute right-0 p-2 m-2 text-red-500 font-bold">{{contenido.attributes.status | uppercase}}</div>
 </div>
 
-<div class="m-5 p-2">
-    <div *ngFor="let categoria of categorias" class="inline-flex">
+<div class="m-5 p-2" >
+    <div *ngFor="let categoria of categorias" class="inline-flex" >
         <p class="m-2 bg-red-300 p-2 rounded-full">{{categoria.attributes.title}}</p>
     </div>
     <div class="grid grid-flow-row" *ngIf="contenido.type == 'anime'">
@@ -38,3 +48,4 @@
 
     </div>
 </div>
+</ng-container>

@@ -1,24 +1,33 @@
-<div class="0 h-auto w-full -z-50" style="background-color: #D85B6B;margin-top: 28rem;" *ngIf="isPrimary;else sencondary">
-    <h1 class="titleM p-5 font-semibold text-2xl text-slate-50 text-center">RECOMENDACION {{propertyes![0] | uppercase}}
-    </h1>
+<ng-template #loader>
 
-    <div class="grid grid-cols-5 m-auto">
-        <div *ngFor="let anime of tenRecomendacion">
-            <app-cards [anime]="anime" color="#420001"></app-cards>
+    <h1 class="text-center m-96 font-extrabold text-red-400 text-7xl">CARGANDO..</h1>
+
+</ng-template>
+
+<ng-container *ngIf="tenRecomendacion else loader">
+    <div class="0 h-auto w-full -z-50" style="background-color: #D85B6B;margin-top: 28rem;"
+        *ngIf="isPrimary;else sencondary">
+        <h1 class="titleM p-5 font-semibold text-2xl text-slate-50 text-center">{{title | uppercase}}
+        </h1>
+
+        <div class="grid 2xl:grid-cols-10 lg:grid-cols-5 sm:grid-cols-2 m-auto">
+            <div *ngFor="let anime of tenRecomendacion">
+                <app-cards [anime]="anime" color="#420001"></app-cards>
+            </div>
         </div>
     </div>
 
 
-</div>
-
-<ng-template #sencondary>
-    <div class="bg-slate-200 h-auto w-full -z-50 " style="background-color: #420001;">
-        <h1 class="titleA p-5 font-semibold text-2xl text-slate-50 text-center">RECOMENDACION {{propertyes![0] |
-            uppercase}}</h1>
-            <div class="grid grid-cols-5 m-auto">
+    <ng-template #sencondary>
+        <div class="bg-slate-200 h-auto w-full -z-50 " style="background-color: #420001;">
+            <h1 class="titleA p-5 font-semibold text-2xl text-slate-50 text-center">{{title |
+                uppercase}}</h1>
+            <div class="grid 2xl:grid-cols-10 lg:grid-cols-5 sm:grid-cols-2 m-auto">
                 <div *ngFor="let anime of tenRecomendacion">
                     <app-cards [anime]="anime" color="#D85B6B"></app-cards>
                 </div>
             </div>
-    </div>
-</ng-template>
+        </div>
+    </ng-template>
+
+</ng-container>

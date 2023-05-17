@@ -1,9 +1,17 @@
-<div *ngIf="anime" class="card w-full h-full p-5">
+
+<ng-template #loader>
+    <div class="container">
+    <h1 class="text-center mt-52 font-extrabold text-red-400 text-7xl">CARGANDO..</h1>
+</div>
+</ng-template>
+
+
+<div *ngIf="anime.attributes else loader" class="card w-full h-full p-5">
 <p class="absolute p-1 font-semibold bg-red-600 text-slate-50 rounded-ee-2xl rounded-tl-2xl"
 [ngStyle]="{'background': color }">{{anime.attributes.averageRating}}</p>
-<a [routerLink]="[anime.type,anime.id]" target="_blank" rel="noopener noreferrer">
+
 <img [src]="anime.attributes.posterImage.original"
-    class="object-cover h-5/6 rounded-tr-2xl rounded-tl-2xl shadow-xl w-full" [ngStyle]="{ 'border': '3px solid' + color }" ></a>
+    class="object-cover h-5/6 rounded-tr-2xl rounded-tl-2xl shadow-xl w-full cursor-pointer" [ngStyle]="{ 'border': '3px solid' + color }" [routerLink]="['/'+anime.type,anime.id]" >
 <p class=" text-center font-bold text-slate-50 rounded-ee-2xl rounded-es-2xl  p-2" 
 [ngStyle]="{'background': color }">
     {{anime.attributes.titles.en_jp | titlepipe  }}</p>

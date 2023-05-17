@@ -14,11 +14,22 @@ export class KitsuService {
 
   constructor(private http: HttpClient) { }
 
-  public getContent(type: string, isRecomendation: boolean = true): Observable<Kitsu> {
-    if (isRecomendation) {
+  public findContent(date : string){
+    return this.http.get<Kitsu>(`https://kitsu.io/api/edge/anime?filter[text]=${date}`)
+  
+  }
+
+
+  public getContent(type: string, isRecomendation?: string ,hoja? : number): Observable<Kitsu> {
+    if (isRecomendation == 'recomendation') {
       return this.http.get<Kitsu>(`https://kitsu.io/api/edge/${type}?page%5Blimit%5D=10&page%5Boffset%5D=${Math.random() * 200}`)
+    }else if (isRecomendation == 'trending') {
+      return this.http.get<Kitsu>(`https://kitsu.io/api/edge/trending/anime`)
+    }else {
+
+      return this.http.get<Kitsu>(`https://kitsu.io/api/edge/${type}?page%5Blimit%5D=18&page%5Boffset%5D=${hoja}`)
     }
-    return this.http.get<Kitsu>(`https://kitsu.io/api/edge/${type}`)
+   
   }
 
   public getDetailsContent(type: string, id: string): Observable<KitsuUnique> {
